@@ -60,7 +60,7 @@ def get_prediction():
   df = pd.DataFrame(data=data, index=['row1'])
 
   df = decision_tree.encode_categorical_columns(df)
-  pred = loaded_model.predict(df)
+  pred = loaded_model.predict(df)t
   if FLUENTD_HOST:
       logger = sender.FluentSender(TENANT, host=FLUENTD_HOST, port=int(FLUENTD_PORT))
       log_payload = {'prediction': pred[0], **data}
